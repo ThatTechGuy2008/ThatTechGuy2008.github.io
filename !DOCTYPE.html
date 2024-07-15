@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Content Cannot Be Found</title>
+</head>
+<body>
+    <h1>This Content Cannot Be Found</h1>
+    <p>Explore the podcast feed:</p>
+    <a href="https://media.rss.com/thiscontentcannotbefound/feed.xml" target="_blank">Listen to the podcast</a>
+</body>
+</html>
+<!DOCTYPE HTML>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>That Tech Guy's Podcast</title>
+</head>
+<body>
+    <h1>That Tech Guy's Podcast</h1>
+    <!-- Your cosmic Spotify iframe -->
+    <iframe src="https://podcasters.spotify.com/pod/show/thattechguy20089/embed" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+   
+</body>
+</html>
+
+<a id="podcast-link" target="_blank"></a>
+<script>
+  // Fetch the latest RSS feed URL dynamically
+  fetch('https://media.rss.com/thiscontentcannotbefound/feed.xml')
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(data, 'text/xml');
+      const latestEpisodeLink = xmlDoc.querySelector('item link').textContent;
+      document.getElementById('podcast-link').href = latestEpisodeLink;
+      document.getElementById('podcast-link').innerText = 'Listen to the latest episode';
+    })
+    .catch(error => console.error('Error fetching RSS feed:', error));
+</script>
+
